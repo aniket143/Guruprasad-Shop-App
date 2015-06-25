@@ -266,7 +266,12 @@ window.location.href="#qrpage?member="+localStorage.getItem("shopcode")+'|'+loca
 function getid1()
 {
 window.location.href="#option?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
-}	
+}
+	function getpass()
+	{
+	window.location.href="change_password.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+
+	} 
   </script>
 </head>
 <body>
@@ -299,6 +304,9 @@ window.location.href="#option?member="+localStorage.getItem("shopcode")+'|'+loca
     </div>
     <div data-role="controlgroup" data-type="vertical">
      <button class="ui-btn" onclick="getname1();">New Registration</button> 
+  </div>
+  <div data-role="controlgroup" data-type="vertical">
+     <button class="ui-btn" onclick="getpass();">Change Password</button> 
   </div>
  </div>
 <div data-role="page" id="qrpage">
