@@ -432,14 +432,28 @@ window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+lo
  <label for="phoneno">Primary Phone No(with code) :</label>
   <input id="phoneno" type="tel" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  name="phoneno" >
 </div>
-         <div class="ui-field-contain">  
+         < <div class="ui-field-contain"> 
+      <label for="mobileNo"><font color="red">*</font> Mobile No:</label>
+        <input  id="mobileNo" type="tel" maxlength="10" name="mobileNo" onblur="phonenumber(this.value);" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
+<input type="hidden" id="cmatch" name="cmatch"> <div id="mob"></div>   
+      </div>
+	   
+	   <button type="button" class="btn btn-primary" id="confirm" onclick="msg_send()">Confirm</button>
+	   
+    </div>
+      <div class="ui-field-contain"> 
+      <label for="code"><font color="red">*</font> Enter Confirm code:</label>
+
+        <input class="form-control" id="ccode" type="tel" maxlength="4" name="ccode"  onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
+      </div>
+        <!--  <div class="ui-field-contain">  
   <label for="mobileNo">Mobile No:</label>
   <input id="mobileNo" type="tel" maxlength="10" name="mobileNo" onblur="phonenumber(this.value)"  onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
 <div id="mob"></div>
-</div>
+</div> -->
          <div class="ui-field-contain"> 
  <label for="email"> Email:</label>
- <input id="email" type="email" name="email"  onblur="email_add(this.value);"  required><div id="emailval">
+ <input id="email" type="text" name="email"  onblur="email_add(this.value);" onclick="checkcode();" required><div id="emailval">
     </div>
 </div>
          <div class="ui-field-contain">      
