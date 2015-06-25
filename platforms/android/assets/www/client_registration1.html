@@ -84,8 +84,9 @@ document.getElementById('name1').innerHTML=queryString[key];
             var ifscCode= $.trim($("#ifscCode").val());
             var password= $.trim($("#password").val());
             var confirm_password= $.trim($("#confirm_password").val());
+            var ccode= $.trim($("#ccode").val());
 
-     if(applicateName=="" || sponsorId==""||date==""||panNo==""||cardid==""||address==""||address==""||city_town==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
+     if(applicateName=="" ||ccode==""|| sponsorId==""||date==""||panNo==""||cardid==""||address==""||address==""||city_town==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
            {
            alert("Please Enter All details properly!!");  
            document.getElementById('sponsorId').value="";         
@@ -273,6 +274,64 @@ function lettersOnly(evt) {
     document.getElementById('confirm_password').value="";
     }
     }
+    function msg_send()
+{
+	 var mobile=document.getElementById('mobileNo').value;
+	 var cmatch=document.getElementById('cmatch').value;
+ var res="mobile="+mobile+"&cmatch="+cmatch;
+//alert(res);
+$.ajax({
+				 type: "GET",
+				 url:"msg_send_cof.php",
+				 data:res,
+				 success: function(msg){
+				 	
+    //	alert(msg);
+					if(msg==1)
+					{
+					alert("Message Send");
+     	//	alert(msg);
+					}
+				 }
+		});
+	}
+
+$(function() {
+      $("#mobileNo").click(function() {
+            $.ajax({
+     url: "code.php",
+  // url: "http://shopnearn.co.in/mobileapp/billno.php",
+         type     : 'POST',
+              data: ({}),
+                  cache: false,
+                  dataType: "text",
+                  success: onSuccess
+                });
+                });
+     $("#resultLog").ajaxError(function(event, request, settings, exception) {
+          $("#resultLog").html("Error Calling: " + settings.url + "<br />HTTP Code: " + request.status);});
+          
+function onSuccess(data)
+        {
+        // alert(data);
+         document.getElementById('cmatch').value=data;
+          }
+  });  
+   
+   function checkcode()
+   {
+   	 var cmatch=document.getElementById('cmatch').value;
+   	 var ccode=document.getElementById('ccode').value;
+   	 if(cmatch!=ccode)
+   	 {
+     alert("Please Enter Correct Code...!!!")   	 
+     document.getElementById('ccode').value="";
+				 document.getElementById('ccode').focus();
+   	 }
+   	 else
+   	 {}
+      } 
+    
     function getid()
 {
 window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
@@ -375,14 +434,28 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
  <label for="phoneno">Primary Phone No(with code) :</label>
   <input id="phoneno" type="tel" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  name="phoneno" >
 </div>
-         <div class="ui-field-contain">  
+         <div class="ui-field-contain"> 
+      <label for="mobileNo"><font color="red">*</font> Mobile No:</label>
+        <input  id="mobileNo" type="tel" maxlength="10" name="mobileNo" onblur="phonenumber(this.value);" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
+<input type="hidden" id="cmatch" name="cmatch"> <div id="mob"></div>   
+      </div>
+	   
+	   <button type="button" class="btn btn-primary" id="confirm" onclick="msg_send()">Confirm</button>
+	   
+    </div>
+      <div class="ui-field-contain"> 
+      <label for="code"><font color="red">*</font> Enter Confirm code:</label>
+
+        <input class="form-control" id="ccode" type="tel" maxlength="4" name="ccode"  onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
+      </div>
+        <!--  <div class="ui-field-contain">  
   <label for="mobileNo">Mobile No:</label>
   <input id="mobileNo" type="tel" maxlength="10" name="mobileNo" onblur="phonenumber(this.value)"  onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
 <div id="mob"></div>
-</div>
+</div> -->
          <div class="ui-field-contain"> 
  <label for="email"> Email:</label>
- <input id="email" type="email" name="email"  onblur="email_add(this.value);"  required><div id="emailval">
+ <input id="email" type="text" name="email"  onblur="email_add(this.value);" onclick="checkcode();" required><div id="emailval">
     </div>
 </div>
          <div class="ui-field-contain">      
