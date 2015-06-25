@@ -280,7 +280,7 @@ function lettersOnly(evt) {
 //alert(res);
 $.ajax({
 				 type: "GET",
-				 url:"msg_send_cof.php",
+				 url:"http://shopnearn.co.in/mobileapp/msg_send_cof.php",
 				 data:res,
 				 success: function(msg){
 				 	
@@ -297,7 +297,7 @@ $.ajax({
 $(function() {
       $("#mobileNo").click(function() {
             $.ajax({
-     url: "code.php",
+     url: "http://shopnearn.co.in/mobileapp/code.php",
   // url: "http://shopnearn.co.in/mobileapp/billno.php",
          type     : 'POST',
               data: ({}),
