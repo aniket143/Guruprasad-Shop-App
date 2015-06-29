@@ -1,48 +1,24 @@
 <!DOCTYPE html>
- <html class="no-js">
+<html>
     <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Basic QR-code reader example</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">  
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">  
  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />  
  <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
-        <script src="js/jquery.min.js"></script>
-
-
-		<script type="text/javascript" src="js/qr/grid.js"></script>
-		<script type="text/javascript" src="js/qr/version.js"></script>
-		<script type="text/javascript" src="js/qr/detector.js"></script>
-		<script type="text/javascript" src="js/qr/formatinf.js"></script>
-		<script type="text/javascript" src="js/qr/errorlevel.js"></script>
-		<script type="text/javascript" src="js/qr/bitmat.js"></script>
-		<script type="text/javascript" src="js/qr/datablock.js"></script>
-		<script type="text/javascript" src="js/qr/bmparser.js"></script>
-		<script type="text/javascript" src="js/qr/datamask.js"></script>
-		<script type="text/javascript" src="js/qr/rsdecoder.js"></script>
-		<script type="text/javascript" src="js/qr/gf256poly.js"></script>
-		<script type="text/javascript" src="js/qr/gf256.js"></script>
-		<script type="text/javascript" src="js/qr/decoder.js"></script>
-		<script type="text/javascript" src="js/qr/qrcode.js"></script>
-		<script type="text/javascript" src="js/qr/findpat.js"></script>
-		<script type="text/javascript" src="js/qr/alignpat.js"></script>
-		<script type="text/javascript" src="js/qr/databr.js"></script>
-
-		<script src="js/effects.js"></script>
-		<script src="js/jquery-1.11.3.min.js"></script>
- <script src="js/jquery.mobile-1.4.5.js"></script>  
-  <script src="jss/jquery-1.4.4.min.js"></script>   
- <script src="js/jquery-1.7.min.js"></script>
- 
-    		   		<script src="js/photobooth.js"></script>
-
-		<script>
-	function get(){
+   <script type="text/javascript" src="js/cordova.js"></script> 
+        <script type="text/javascript" src="js/app.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>  
+ <script src="jss/jquery-1.4.4.min.js"></script>  
+<script type="text/javascript">
+ function getid()
+{
+window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+} 
+function get(){
  var queryString = new Array();
 
           if (window.location.search.split('?').length > 1) {
@@ -58,68 +34,10 @@
 
               document.getElementById('name1').innerHTML =myArray[1];
               }
-	$(function() {
-     $("#callAjax1").click(function() {
-            var qrContent = document.getElementById('qrContent').innerHTML;
-           // alert(qrContent);
-           if(qrContent=="")
-            {
-           alert("Please Enter Code");       
-            }
-            else{
-          if(qrContent.length > 0)
-            { $.ajax({
-      //url: "qrcode.php",
-    url: "http://shopnearn.co.in/mobileapp/qrcode.php",
-      //url: "http://shopnearn.co.in/mobileapp/member_details.php",
-           type     : 'GET',
-             data: ({name: qrContent}),
-                  cache: false,
-                  dataType: "text",
-                  success: onSuccess
-                });}}
-                });
-   $("#resultLog").ajaxError(function(event, request, settings, exception) {
-          $("#resultLog").html("Error Calling: " + settings.url + "<br />HTTP Code: " + request.status);
-        });
-function onSuccess(data)
-        {
-       // alert(data);
-        var queryString = new Array();
-
-          if (window.location.search.split('?').length > 1) {
-                var params = window.location.search.split('?')[1].split('&');
-                for (var i = 0; i < params.length; i++) {
-                    var key = params[i].split('=')[0];
-                    var value = decodeURIComponent(params[i].split('=')[1]);
-                    queryString[key] = value;
-                }
-            }                          
-            var qrContent = document.getElementById('qrContent').innerHTML;
-if(qrContent=="")
-            {
-           alert("Please Enter code.");       
-            }
-            else{
-var myArray=queryString[key].split('|');
-
-            $("#resultLog").html("Result: " + data);
-
-          		window.location.href="memberid2.html?member="+encodeURIComponent(data)+"|"+myArray[0]+"|"+myArray[1];
-
-        }}
-  });
- 
-  
-  function getid()
-{
-window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
-} 
-
 </script>
     </head>
     <body onload="get();">
-<div class="pageWrapper">
+
 <div data-role="panel" id="overlayPanel1" data-display="overlay" data-rel="back"> 
     <ul data-role="listview">
    <li data-icon="camera"><a onclick="getid();" style= font-size:0.9em;>QR Code</a></li>
@@ -137,25 +55,17 @@ window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+lo
           </a>         
          <a href="index.html?reload" class="ui-btn ui-corner-all ui-icon-power ui-btn-icon-notext" data-rel="external" rel="external"  >Logout</a>
    </div>   
+   <p>
+    <button id="startScan" style="width:200px;height:200px;">Scan Barcode</button>
+    </p>
+    <p>
+<!--     <span id="AuthorInfo" style="font-family:Verdana;font-size:large;color:firebrick">&copy; 2014, Umer Pasha - <a href="http://www.umerpasha.com">http://www.umerpasha.com</a> - <a href="mailto:mail@umerpasha.com">mail@umerpasha.com</a></span> -->
+    </p>
 
+    <div id="results"></div>
 
-			<div>
-				<div id="example"></div>
-			</div>
-
-			<div class="button">
-				<a id="button">Scan QR code</a>
-			</div>
-
-			<div class="boxWrapper auto">
-				<div id="hiddenImg"></div>
-				<div id="callAjax1">
-				<div id="qrContent">
-			<p>Result will be here.</p></div>
-			</div>
-			</div>
-
-		</div>
-
- </body>
+       
+    </body>
 </html>
+
+
