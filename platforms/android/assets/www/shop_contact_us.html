@@ -15,6 +15,50 @@ function getid()
 {
 window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
 }
+$(function() {
+      $("#submit").click(function() {
+                 var address = $.trim($("#address").val());
+                 var name = $.trim($("#name").val());
+                 var enquiry = $.trim($("#enquiry").val());
+                // alert(address);
+                 var reg=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                
+                if(reg.test(address)==false)
+                {
+               alert("Please Enter Valid Email Address");
+               document.getElementById('address').value="";                     
+               return false;             
+                }      
+                
+                 if(address==""||name==""||enquiry=="")
+                 {
+               alert("Please Enter All Details Properly...!!!");
+           document.getElementById('name').value="";                     
+           document.getElementById('address').value="";                     
+           document.getElementById('enquiry').value="";   
+                      
+                 }
+                 else
+                 {
+                 
+       $.ajax({
+     url: "http://shopnearn.co.in/mobileapp/email.php",
+           type     : 'GET',
+             data: ({address:address,enquiry:enquiry}),
+                  cache: false,
+                  dataType: "text",
+                  success: onSuccess
+                });}
+                });
+    $("#resultLog").ajaxError(function(event, request, settings, exception) {
+          $("#resultLog").html("Error Calling: " + settings.url + "<br />HTTP Code: " + request.status);
+        });
+function onSuccess(data)
+        {
+        alert(data);
+      $("#resultLog").html("Result: " + data);
+        }
+  });
 </script>
         </head>
 <body>
@@ -37,7 +81,34 @@ window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+lo
           </a>         
           <a onclick="getid();" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext">home</a>
    </div>   
+  <div data-role="main" class="ui-content" style="background-color:white;">  
+  <p><h3><center>Our Location</center></h3></p>
   
+<center><table  class="ui-responsive ui-shadow"> <tr><th> Shop N Earn</th><th>&nbsp;&nbsp;Telephone</th></tr>
+<tr><td>Mumbai</td><td>123456789</td></tr></table></center><br><hr>
+
+<center><p><h3>Our Stores</h3></p>
+<table  class="ui-responsive ui-shadow"><tr><th>Shop N Earn</th><th>&nbsp;&nbsp;Telephone</th></tr>
+<tr><td>Mumbai</td><td>8668007907</td></tr></table><center><br><hr>
+
+<br><div align="middle"><h3>Contact Form</h3></div>
+<form  name="contact_form" class="contact_form" method="post">
+<div class="ui-field-contain">
+      <label for="name"><font color="red">*</font>&nbsp;Your Name:</label>
+      <input type="text" name="name" id="name" required >
+      </div>
+      <div class="ui-field-contain">
+      <label for="address"><font color="red">*</font>&nbsp;Email Address:</label>
+      <input type="email" name="address" id="address" required >
+      </div>
+       <div class="ui-field-contain">
+      <label for="enquiry"><font color="red">*</font>&nbsp;Enquiry:</label>
+      <textarea  name="enquiry" id="enquiry" required></textarea>
+      </div>
+
+</form>
+      <button id="submit"class="ui-btn" >Submit</button>
+</div> 
 </div> 
 
 </body>
