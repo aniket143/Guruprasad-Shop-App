@@ -1,48 +1,23 @@
 <!DOCTYPE html>
- <html class="no-js">
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Basic QR-code reader example</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">  
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">  
  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />  
  <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
-        <script src="js/jquery.min.js"></script>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>  
+ <script src="jss/jquery-1.4.4.min.js"></script>  
+<script type="text/javascript">
 
 
-		<script type="text/javascript" src="js/qr/grid.js"></script>
-		<script type="text/javascript" src="js/qr/version.js"></script>
-		<script type="text/javascript" src="js/qr/detector.js"></script>
-		<script type="text/javascript" src="js/qr/formatinf.js"></script>
-		<script type="text/javascript" src="js/qr/errorlevel.js"></script>
-		<script type="text/javascript" src="js/qr/bitmat.js"></script>
-		<script type="text/javascript" src="js/qr/datablock.js"></script>
-		<script type="text/javascript" src="js/qr/bmparser.js"></script>
-		<script type="text/javascript" src="js/qr/datamask.js"></script>
-		<script type="text/javascript" src="js/qr/rsdecoder.js"></script>
-		<script type="text/javascript" src="js/qr/gf256poly.js"></script>
-		<script type="text/javascript" src="js/qr/gf256.js"></script>
-		<script type="text/javascript" src="js/qr/decoder.js"></script>
-		<script type="text/javascript" src="js/qr/qrcode.js"></script>
-		<script type="text/javascript" src="js/qr/findpat.js"></script>
-		<script type="text/javascript" src="js/qr/alignpat.js"></script>
-		<script type="text/javascript" src="js/qr/databr.js"></script>
-
-		<script src="js/effects.js"></script>
-		<script src="js/jquery-1.11.3.min.js"></script>
- <script src="js/jquery.mobile-1.4.5.js"></script>  
-  <script src="jss/jquery-1.4.4.min.js"></script>   
- <script src="js/jquery-1.7.min.js"></script>
- 
-    		   		<script src="js/photobooth.js"></script>
-
-		<script>
-	function get(){
+function get(){
  var queryString = new Array();
 
           if (window.location.search.split('?').length > 1) {
@@ -58,10 +33,14 @@
 
               document.getElementById('name1').innerHTML =myArray[1];
               }
-	
-	$(function() {
-     $("#callAjax1").click(function() {
-            var qrContent = document.getElementById('qrContent').innerHTML;
+              function getid()
+{
+window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname")+'|'+localStorage.getItem("shopid");
+}
+
+$(function() {
+     $("#submit").click(function() {
+            var qrContent = document.getElementById('results').innerHTML;
            // alert(qrContent);
            if(qrContent=="")
             {
@@ -70,6 +49,7 @@
             else{
           if(qrContent.length > 0)
             { $.ajax({
+     // url: "qrcode.php",
       url: "http://shopnearn.co.in/mobileapp/qrcode.php",
       //url: "http://shopnearn.co.in/mobileapp/member_details.php",
            type     : 'GET',
@@ -109,25 +89,18 @@ var myArray=queryString[key].split('|');
 
         }}
   });
- 
-  function getid()
-{
-window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
-} 
-   
-
 </script>
     </head>
     <body onload="get();">
-<div class="pageWrapper">
+
 <div data-role="panel" id="overlayPanel1" data-display="overlay" data-rel="back"> 
     <ul data-role="listview">
    <li data-icon="camera"><a onclick="getid();" style= font-size:0.9em;>QR Code</a></li>
   <li data-icon="user"><a onclick="getid();" style= font-size:0.9em;>Member Id</a></li>
   <li data-icon="phone"><a onclick="getid();" style= font-size:0.9em;>Mobile No</a></li>
-   <li data-icon="user"><a href="tieup_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
-     <li data-icon="info"><a href="tieup_faq.html?reload" style= font-size:0.9em; data-rel="external" rel="external">FAQ</a></li>
-  <li data-icon="phone"><a href="tieup_contact_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Contact Us</a></li>
+   <li data-icon="user"><a href="shop_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
+     <li data-icon="info"><a href="shop_faq.html?reload" style= font-size:0.9em; data-rel="external" rel="external">FAQ</a></li>
+  <li data-icon="phone"><a href="shop_contact_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Contact Us</a></li>
   <li data-icon="power"><a href="index.html?reload" style= font-size:0.9em; data-rel="external" rel="external" >Logout</a></li>
 </ul>  
 </div> 
@@ -135,25 +108,17 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
   <h3 style="text-align: center"><div id="name1"></div></h3>
            <a data-rel="external" rel="external"  role="button" data-role="button" data-mini="true" href="#overlayPanel1" class="ui-btn-left ui-btn-corner-all ui-btn  ui-icon-bars ui-btn-icon-notext ui-shadow" title="Home" data-form="ui-icon" data-theme="a" > 
           </a>         
-         <a href="index.html?reload" class="ui-btn ui-corner-all ui-icon-power ui-btn-icon-notext" data-rel="external" rel="external"  >Logout</a>
+          <a onclick="getid();" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext" >home</a>
    </div>   
-
-			<div>
-				<div id="example"></div>
-			</div>
-
-			<div class="button">
-				<a id="button">Scan QR code</a>
-			</div>
-
-			<div class="boxWrapper auto">
-				<div id="hiddenImg"></div>
-				<div id="callAjax1">
-				<div id="qrContent">
-			<p>Result will be here.</p></div>
-			</div>
-			</div>
-
-		</div>
- </body>
+   <p>
+            <button id="startScan">Start Scan</button>
+            
+        </p>
+            <button id="submit">Submit</button>
+        <div id="results"></div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index1.js"></script>
+    </body>
 </html>
+
+
