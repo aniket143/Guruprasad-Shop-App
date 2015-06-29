@@ -36,6 +36,62 @@ function get(){
 
               document.getElementById('name1').innerHTML =myArray[1];
               }
+              function getid()
+{
+window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname")+'|'+localStorage.getItem("shopid");
+}
+
+$(function() {
+     $("#submit").click(function() {
+            var qrContent = document.getElementById('results').innerHTML;
+           // alert(qrContent);
+           if(qrContent=="")
+            {
+           alert("Please Enter Code");       
+            }
+            else{
+          if(qrContent.length > 0)
+            { $.ajax({
+     // url: "qrcode.php",
+      url: "http://shopnearn.co.in/mobileapp/qrcode.php",
+      //url: "http://shopnearn.co.in/mobileapp/member_details.php",
+           type     : 'GET',
+             data: ({name: qrContent}),
+                  cache: false,
+                  dataType: "text",
+                  success: onSuccess
+                });}}
+                });
+   $("#resultLog").ajaxError(function(event, request, settings, exception) {
+          $("#resultLog").html("Error Calling: " + settings.url + "<br />HTTP Code: " + request.status);
+        });
+function onSuccess(data)
+        {
+      //  alert(data);
+        var queryString = new Array();
+
+          if (window.location.search.split('?').length > 1) {
+                var params = window.location.search.split('?')[1].split('&');
+                for (var i = 0; i < params.length; i++) {
+                    var key = params[i].split('=')[0];
+                    var value = decodeURIComponent(params[i].split('=')[1]);
+                    queryString[key] = value;
+                }
+            }
+            var qrContent = document.getElementById('qrContent').innerHTML;
+if(qrContent=="")
+            {
+           alert("Please Enter code.");       
+            }
+            else{
+var myArray=queryString[key].split('|');
+
+            $("#resultLog").html("Result: " + data);
+
+          		window.location.href="memberid2.html?member="+encodeURIComponent(data)+"|"+myArray[0]+"|"+myArray[1];
+
+        }}
+  });
 </script>
     </head>
     <body onload="get();">
@@ -55,15 +111,16 @@ function get(){
   <h3 style="text-align: center"><div id="name1"></div></h3>
            <a data-rel="external" rel="external"  role="button" data-role="button" data-mini="true" href="#overlayPanel1" class="ui-btn-left ui-btn-corner-all ui-btn  ui-icon-bars ui-btn-icon-notext ui-shadow" title="Home" data-form="ui-icon" data-theme="a" > 
           </a>         
-         <a href="index.html?reload" class="ui-btn ui-corner-all ui-icon-power ui-btn-icon-notext" data-rel="external" rel="external"  >Logout</a>
+          <a onclick="getid();" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext" >home</a>
    </div>   
    <p>
             <button id="startScan">Start Scan</button>
+            
         </p>
-
+            <button id="submit">Submit</button>
         <div id="results"></div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index1.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
 
