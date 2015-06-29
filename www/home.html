@@ -265,7 +265,10 @@ function getid1()
 {
 window.location.href="#option?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
 }	
-
+function qrcode()
+{
+window.location.href="qrcode.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname")+'|'+localStorage.getItem("shopid");
+}	
   </script>
 </head>
 <body>
@@ -273,7 +276,7 @@ window.location.href="#option?member="+localStorage.getItem("shopcode")+'|'+loca
             <div data-role="page" id="option">
 <div data-role="panel" id="overlayPanel1" data-display="overlay"> 
     <ul data-role="listview">
-    <li data-icon="camera"><a href="#qrcode1" style= font-size:0.9em;>QR Code</a></li>
+    <li data-icon="camera"><a onclick="qrcode();" style= font-size:0.9em;>QR Code</a></li>
   <li data-icon="user"><a href="#memberid1" style= font-size:0.9em;>Client Id</a></li>
   <li data-icon="phone"><a href="#mobno1" style= font-size:0.9em;>Mobile No</a></li>
   <li data-icon="user"><a href="shop_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
@@ -306,7 +309,7 @@ window.location.href="#option?member="+localStorage.getItem("shopcode")+'|'+loca
    
               <div data-role="panel" id="overlayPanel1" data-display="overlay"> 
     <ul data-role="listview">
-    <li data-icon="camera"><a href="#qrcode1" style= font-size:0.9em;>QR Code</a></li>
+    <li data-icon="camera"><a onclick="qrcode();" style= font-size:0.9em;>QR Code</a></li>
   <li data-icon="user"><a href="#memberid1" style= font-size:0.9em;>Client Id</a></li>
   <li data-icon="phone"><a href="#mobno1" style= font-size:0.9em;>Mobile No</a></li>
     <li data-icon="user"><a href="shop_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
@@ -328,7 +331,7 @@ window.location.href="#option?member="+localStorage.getItem("shopcode")+'|'+loca
   <div data-role="main" class="ui-content">
   
 <div data-role="controlgroup" data-type="vertical">
-    <a href="#qrcode1" class="ui-btn ui-icon-camera ui-btn-icon-top"   style="border-color:orange">QR Code</a><br><br>
+    <a onclick="qrcode();" class="ui-btn ui-icon-camera ui-btn-icon-top"   style="border-color:orange">QR Code</a><br><br>
       </div>
       <div data-role="controlgroup" data-type="vertical">
     <a href="#memberid1" class="ui-btn ui-icon-user ui-btn-icon-top" style="border-color:orange">Client Id</a><br><br>
@@ -342,7 +345,7 @@ window.location.href="#option?member="+localStorage.getItem("shopcode")+'|'+loca
      <div data-role="page" id="memberid1">
   <div data-role="panel" id="overlayPanel1" data-display="overlay"> 
     <ul data-role="listview">
-    <li data-icon="camera"><a href="#qrcode1" style= font-size:0.9em;>QR Code</a></li>
+    <li data-icon="camera"><a onclick="qrcode();" style= font-size:0.9em;>QR Code</a></li>
   <li data-icon="user"><a href="#memberid1" style= font-size:0.9em;>Client Id</a></li>
   <li data-icon="phone"><a href="#mobno1" style= font-size:0.9em;>Mobile No</a></li>
    <li data-icon="user"><a href="shop_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
@@ -379,7 +382,7 @@ window.location.href="#option?member="+localStorage.getItem("shopcode")+'|'+loca
    <div data-role="page" id="mobno1">
   <div data-role="panel" id="overlayPanel1" data-display="overlay"> 
     <ul data-role="listview">
-    <li data-icon="camera"><a href="#qrcode1" style= font-size:0.9em;>QR Code</a></li>
+    <li data-icon="camera"><a onclick="qrcode();" style= font-size:0.9em;>QR Code</a></li>
   <li data-icon="user"><a href="#memberid1" style= font-size:0.9em;>Client Id</a></li>
   <li data-icon="phone"><a href="#mobno1" style= font-size:0.9em;>Mobile No</a></li>
    <li data-icon="user"><a href="shop_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
