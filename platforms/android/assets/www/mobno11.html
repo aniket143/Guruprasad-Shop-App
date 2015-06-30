@@ -71,7 +71,7 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
 <div data-role="panel" id="overlayPanel1" data-display="overlay" data-rel="back"> 
     <ul data-role="listview">
    <li data-icon="camera"><a onclick="getid();" style= font-size:0.9em;>QR Code</a></li>
-  <li data-icon="user"><a onclick="getid();" style= font-size:0.9em;>Member Id</a></li>
+  <li data-icon="user"><a onclick="getid();" style= font-size:0.9em;>Customer Id</a></li>
   <li data-icon="phone"><a onclick="getid();" style= font-size:0.9em;>Mobile No</a></li>
    <li data-icon="user"><a href="tieup_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
     <li data-icon="info"><a href="tieup_faq.html?reload" style= font-size:0.9em; data-rel="external" rel="external">FAQ</a></li>
@@ -89,11 +89,11 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
             </div>
          <form>
           <ul data-role="listview" data-inset="true">
-          <li><div class="ui-block-a"><b>Client Id:&nbsp;</b></div>
+          <li><div class="ui-block-a"><b>Customer Id:&nbsp;</b></div>
    <div class="ui-block-b"  style="text-align:right;" id="member"></div></li>
     <li><div class="ui-block-a"><b>Card No.:&nbsp;</b></div>
    <div class="ui-block-b"  style="text-align:right;" id="code"></div></li>
-    <li><div class="ui-block-a"><b>Client Name:&nbsp;</b></div>
+    <li><div class="ui-block-a"><b>Customer Name:&nbsp;</b></div>
    <div  class="ui-block-b"  class="ui-li-count" id="name"></div></li>
     <li><div class="ui-block-a"><b>Address:&nbsp;</b></div>
      <div class="ui-block-b"  id="address" ></div>  </li>
