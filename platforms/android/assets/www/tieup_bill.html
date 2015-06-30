@@ -206,7 +206,7 @@ function numbersonly(myfield, e, dec)
 <div data-role="panel" id="overlayPanel1" data-display="overlay" data-rel="back"> 
     <ul data-role="listview">
    <li data-icon="camera"><a onclick="getid();" style= font-size:0.9em;>QR Code</a></li>
-  <li data-icon="user"><a onclick="getid();" style= font-size:0.9em;>Member Id</a></li>
+  <li data-icon="user"><a onclick="getid();" style= font-size:0.9em;>Customer Id</a></li>
   <li data-icon="phone"><a onclick="getid();" style= font-size:0.9em;>Mobile No</a></li>
    <li data-icon="user"><a href="tieup_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
      <li data-icon="info"><a href="tieup_faq.html?reload" style= font-size:0.9em; data-rel="external" rel="external">FAQ</a></li>
@@ -248,7 +248,7 @@ function numbersonly(myfield, e, dec)
       </fieldset>
     <label for="pay">Payment Confirm</label>
           <input type="checkbox" name="pay" id="pay"  required>
-      <label for="code">Client Passward Code:</label>
+      <label for="code">Customer Passward Code:</label>
       <input type="password" name="code" id="code" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
   <label for="trans">Validation Confirm</label>
       <input type="checkbox" name="trans" id="trans"  onclick="checkid();" required>
