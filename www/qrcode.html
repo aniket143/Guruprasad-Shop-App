@@ -40,10 +40,37 @@ function get(){
 window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname")+'|'+localStorage.getItem("shopid");
 }
 
-$(function() {
-     $("#submit").click(function() {
-            var qrContent = document.getElementById('results').innerHTML;
-           // alert(qrContent);
+
+  function check_id()
+{
+var id=document.getElementById('results').innerHTML;
+	var res="theName="+id;
+
+//	var res=document.getElementById('results').innerHTML;
+		//alert(res)
+$.ajax({
+		    		 type: "GET",
+    				 //url:"memberid.php",
+    				 url: "http://shopnearn.co.in/mobileapp/memberid.php",
+    				 data:res,
+		    		 success: function(msg){
+		   			if(msg==1 )
+			     		{
+             //alert(msg);
+					       	$('#results').fadeIn(1000);
+			      				document.getElementById('results').innerHTML="Member Id is NOT available"; 
+		      					$('#results').fadeOut(3500);
+												document.getElementById('results').value=""; 
+
+				    		}
+				else
+					     	{
+
+ $(function() {
+     $(document).ready(function() {
+           var qrContent = document.getElementById('results').innerHTML;
+
+         // alert(qrContent);
            if(qrContent=="")
             {
            alert("Please Enter Code");       
@@ -51,9 +78,9 @@ $(function() {
             else{
           if(qrContent.length > 0)
             { $.ajax({
-     // url: "qrcode.php",
+    //  url: "qrcode.php",
       url: "http://shopnearn.co.in/mobileapp/qrcode.php",
-      //url: "http://shopnearn.co.in/mobileapp/member_details.php",
+
            type     : 'GET',
              data: ({name: qrContent}),
                   cache: false,
@@ -66,7 +93,7 @@ $(function() {
         });
 function onSuccess(data)
         {
-      //  alert(data);
+        //alert(data);
         var queryString = new Array();
 
           if (window.location.search.split('?').length > 1) {
@@ -77,15 +104,21 @@ function onSuccess(data)
                     queryString[key] = value;
                 }
             }
-            
+          
 var myArray=queryString[key].split('|');
 
             $("#resultLog").html("Result: " + data);
 
           		window.location.href="memberid2.html?member="+encodeURIComponent(data)+"|"+myArray[0]+"|"+myArray[1];
 
+      //  }
         }
   });
+				    			}
+				   }
+				});
+			
+	} 
 </script>
     </head>
     <body onload="get();">
@@ -113,7 +146,7 @@ var myArray=queryString[key].split('|');
         </p>
                             Customer Id:<div id="results"></div>
 
-            <button id="submit">Submit</button>
+            <button id="submit"  onclick="check_id();">Submit</button>
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index1.js"></script>
