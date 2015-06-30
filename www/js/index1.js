@@ -10,7 +10,7 @@ function startScan() {
 
     cordova.plugins.barcodeScanner.scan(
         function (result) {
-            var s = + result.text;
+            var s =result.text;
             resultDiv.innerHTML = s;
         }, 
         function (error) {
