@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">  
  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />  
@@ -23,18 +22,17 @@ function get(){
                 }
             }
             var myArray=queryString[key].split('|');
-          // alert(queryString[key]);
-              document.getElementById('member2').value =myArray[0];
-              document.getElementById('name1').innerHTML =myArray[1];
+         
                $("#callAjax").ready(function() {
-                 var member2 = $.trim($("#member2").val());
+                 var member2 = myArray[0];
+                 var id = myArray[2];
                 // alert(member2);
             $.ajax({
                       
-      //url: "shop.php",
+     // url: "shop.php",
       url: "http://shopnearn.co.in/mobileapp/shop.php",
            type     : 'POST',
-              data: ({member1:member2}),
+              data: ({member1:member2,id:id}),
                   cache: false,
                   dataType: "text",
                   success: onSuccess
@@ -44,14 +42,7 @@ function get(){
 function onSuccess(data)
         {
          $("#resultLog").html("Result: " + data);
-       var myArray=data.split('|');
-
-  //document.getElementById('member1').value =myArray[0];
-  document.getElementById('billno').innerHTML=myArray[1];
-  document.getElementById('amount').innerHTML =myArray[2];
-  document.getElementById('com').innerHTML=myArray[3];
-  document.getElementById('date').innerHTML=myArray[4];
-  document.getElementById('member1').innerHTML =myArray[0];
+         document.getElementById('myTable').innerHTML=data;
    }
     }
     function getid()
@@ -82,23 +73,12 @@ window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+lo
            <a data-rel="external" rel="external"  role="button" data-role="button" data-mini="true" href="#overlayPanel1" class="ui-btn-left ui-btn-corner-all ui-btn  ui-icon-bars ui-btn-icon-notext ui-shadow" title="Home" data-form="ui-icon" data-theme="a" > 
           </a>         
          <a onclick="getid();" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext" >home</a>
+
             </div>   
 
-
-  <div data-role="main" class="ui-content">
-    <h2>Report</h2>
-    <ul data-role="listview" data-inset="true">
-    <input type="hidden" name="member2" id="member2"  required>
-      <li>Customer Id:<span class="ui-li-count"  id="member1"></span></li>
-      <li>Bill No.:<span class="ui-li-count"  id="billno"></span></li>
-      <li>Bill Amount:<span class="ui-li-count"  id="amount"></span></li>
-      <li>User:<span class="ui-li-count" id="com" ></span></li>
-      <li>Entry Date:<span class="ui-li-count"  id="date"></span></li>
-    </ul>
+<div id="myTable" style="background-color:white;"> 
   </div>
-
-  
-
+ 
 </div> 
 
 </body>
