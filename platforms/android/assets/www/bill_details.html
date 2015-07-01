@@ -149,8 +149,7 @@ function onSuccess(data)
                     var billno = $.trim($("#billno").val());
                     var amount = $.trim($("#amount").val());
                     var com = $.trim($("#com").val());
-                    var code= $.trim($("#code").val());
-                    var t2= $.trim($("#t2").val());
+                    var t1= $.trim($("#t1").val());
                     var pay= document.getElementById('pay').checked;
                     var trans= document.getElementById('trans').checked;
                     if(billno=="" || com=="" || amount=="" ||pay==false|| trans==false)
@@ -163,7 +162,7 @@ function onSuccess(data)
             }
             else{
  $("#resultLog").html("Result: " + data);
-            		window.location.href="report.html?member="+member1+"|"+t2;
+            		window.location.href="report.html?member="+member1+"|"+t2+"|"+t1;
 
         } }
   });
