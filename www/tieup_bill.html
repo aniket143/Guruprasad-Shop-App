@@ -201,6 +201,19 @@ function numbersonly(myfield, e, dec)
          //   document.getElementById("error").style.display = ret ? "none" : "inline";
             return ret;
 }
+
+function amount1()
+{
+var amount=document.getElementById('amount').value;
+if(amount > 20000)
+{
+alert("Amount Should Not Exceed More Than 20,000..!!");
+document.getElementById('amount').value="";
+document.getElementById('amount').focus();
+}
+else
+{}
+}
 </script>
 </head>
 
@@ -241,7 +254,7 @@ function numbersonly(myfield, e, dec)
    <label for="billno">Bill No.:</label>
       <input type="tel" name="billno" id="billno"  readonly>
       <label for="amount">Total Purchase  Amount:</label>
-      <input type="tel" name="amount" id="amount" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
+      <input type="tel" name="amount" id="amount" onblur="amount1();" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
            <fieldset class="ui-field-contain">
       <label for="payment">Cash or Card Payment Select:</label>
         <select name="day" id="day">
