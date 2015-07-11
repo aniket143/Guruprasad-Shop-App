@@ -202,6 +202,20 @@ function numbersonly(myfield, e, dec)
          //   document.getElementById("error").style.display = ret ? "none" : "inline";
             return ret;
 }
+
+function checknet()
+{
+var com=document.getElementById('com').value;
+var amount=document.getElementById('amount').value;
+if(com >= amount)
+{
+alert("Please Enter Net Profit Less Than Amount..!!");
+document.getElementById('com').value="";
+document.getElementById('com').focus();
+}
+else
+{}
+}
 </script>
         </head>
 <body onload="get();">
@@ -254,7 +268,7 @@ function numbersonly(myfield, e, dec)
       <label for="code">Client Passward Code:</label>
       <input type="password" name="code" id="code" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
  <label for="com">Per Bill Net Profit Entry:</label>
-      <input type="tel" name="com" id="com" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
+      <input type="tel" name="com" id="com" onblur="checknet();" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
        <label for="trans">Validation Confirm</label>
       <input type="checkbox" name="trans" id="trans" onclick="checkid()"  required>
      <input type="submit"  value="Submit" id="callAjax" onclick="checkConnection();" name="submit" data-transition="slide">
