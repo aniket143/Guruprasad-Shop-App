@@ -255,7 +255,7 @@ else
    <label for="billno">Bill No.:</label>
       <input type="tel" name="billno" id="billno"  readonly>
       <label for="amount">Total Purchase  Amount:</label>
-      <input type="tel" name="amount" id="amount" onblur="amount1();" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
+      <input type="tel" name="amount" id="amount"  onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
            <fieldset class="ui-field-contain">
       <label for="payment">Cash or Card Payment Select:</label>
         <select name="day" id="day">
@@ -266,7 +266,7 @@ else
     <label for="pay">Payment Confirm</label>
           <input type="checkbox" name="pay" id="pay"  required>
       <label for="code">Customer Passward Code:</label>
-      <input type="password" name="code" id="code" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
+      <input type="password" name="code" id="code" onclick="amount1();" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
   <label for="trans">Validation Confirm</label>
       <input type="checkbox" name="trans" id="trans"  onclick="checkid();" required>
      <input type="submit"  value="Submit" id="callAjax" onclick="checkConnection();" name="submit" data-transition="slide">
