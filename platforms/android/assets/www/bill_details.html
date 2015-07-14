@@ -118,9 +118,10 @@ function onSuccess(data)
             var code= $.trim($("#code").val());
             var pay= document.getElementById('pay').checked;
              var trans= document.getElementById('trans').checked;
+                    var name1= document.getElementById('name1').innerHTML;
 
 
- if(billno=="" || com=="" || amount=="" ||pay==false|| trans==false || code=="")
+ if(billno=="" || com=="" || amount=="" ||pay==false|| trans==false || code=="" || name1=="")
             {
            alert("Please Enter Details Properly"); 
                  document.getElementById('code').value="";
