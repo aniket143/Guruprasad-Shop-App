@@ -278,6 +278,12 @@ function lettersOnly(evt) {
 	 var cmatch=document.getElementById('cmatch').value;
  var res="mobile="+mobile+"&cmatch="+cmatch;
 //alert(res);
+if(mobile=="" || cmatch=="")
+{
+alert("Please Enter Correct Moible No...!!");
+}
+else
+{
 $.ajax({
 				 type: "GET",
 				 url:"http://shopnearn.co.in/mobileapp/msg_send_cof.php",
@@ -293,7 +299,7 @@ $.ajax({
 				 }
 		});
 	}
-
+}
 $(function() {
       $("#mobileNo").click(function() {
             $.ajax({
