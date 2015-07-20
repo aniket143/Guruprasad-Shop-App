@@ -182,9 +182,14 @@ document.addEventListener('backbutton', function(event){
 confirm("Do you want to Exit?");
     navigator.app.exitApp(); // exit the app
 });
+
+ function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
 </script>
 </head>
-<body>
+<body onload="onLoad()">
 <!--.... ......First Page........ -->
 <div data-role="page" id="page" style="background-color:white;" >
 <div data-role="main" class="ui-content">
