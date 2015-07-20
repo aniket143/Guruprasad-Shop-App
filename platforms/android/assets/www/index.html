@@ -179,11 +179,10 @@ document.getElementById('pwd').value="";
         }
 }
 }}
-if($("#page").is(".ui-page-active")){
-
-     navigator.app.exitApp();
-
-}
+document.addEventListener('backbutton', function(event){
+confirm("Do you want to Exit?");
+    navigator.app.exitApp(); // exit the app
+});
 
 </script>
 </head>
