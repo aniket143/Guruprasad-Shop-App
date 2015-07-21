@@ -192,6 +192,14 @@ function onDeviceReady() {
         confirm("Do you want to Exit?");
         navigator.app.exitApp(); // To exit the app!
     }
+    
+        navigator.Backbutton.goHome(function() {
+  console.log('success');
+  navigator.app.exitApp();
+}, function() {
+  console.log('fail')
+});
+    
 </script>
 </head>
 <body onload="onLoad()">
