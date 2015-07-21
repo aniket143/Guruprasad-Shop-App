@@ -179,10 +179,7 @@ document.getElementById('pwd').value="";
         }
 }
 }}
-document.addEventListener('backbutton', function(event){
-confirm("Do you want to Exit?");
-    navigator.app.exitApp(); // exit the app
-});
+
 
  function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -192,6 +189,7 @@ function onDeviceReady() {
         console.log("PhoneGap is ready");
     }
   function backKeyDown() {
+        confirm("Do you want to Exit?");
         navigator.app.exitApp(); // To exit the app!
     }
 </script>
