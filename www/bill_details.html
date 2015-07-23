@@ -207,8 +207,8 @@ function numbersonly(myfield, e, dec)
 
 function checknet()
 {
-var com=document.getElementById('com').value;
-var amount=document.getElementById('amount').value;
+var com=parseInt(document.getElementById('com').value);
+var amount=parseInt(document.getElementById('amount').value);
 if(com >= amount)
 {
 alert("Please Enter Net Profit Less Than Amount..!!");
