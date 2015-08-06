@@ -145,7 +145,13 @@ function onSuccess(data)
           
 function onSuccess(data)
         {
-                    var member1 = $.trim($("#member1").val());
+        	
+        	
+      //alert(data);
+     if(data !='NO')
+      {
+        
+                var member1 = $.trim($("#member1").val());
                     var billno = $.trim($("#billno").val());
                     var amount = $.trim($("#amount").val());
                     var com = $.trim($("#com").val());
@@ -164,11 +170,22 @@ function onSuccess(data)
                  document.getElementById('amount').value="";
             }
             else{
+
  $("#resultLog").html("Result: " + data);
+ 
+          
                         alert("Your Transaction Completed Successfully...!!!"); 
             		window.location.href="report.html?member="+member1+"|"+t2+"|"+t1;
 
-        } }
+        }    
+      }
+      else
+      {
+        alert("Please Enter new bill No.");
+      window.location.reload(); 
+        }
+        
+        }
   });
     
 function checkdate()
