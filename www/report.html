@@ -22,7 +22,7 @@ function get(){
                 }
             }
             var myArray=queryString[key].split('|');
-         
+                            document.getElementById('name1').innerHTML =myArray[1];
                $("#callAjax").ready(function() {
                  var member2 = myArray[0];
                  var id = myArray[2];
