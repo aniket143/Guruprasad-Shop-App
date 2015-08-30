@@ -534,12 +534,12 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
          <div class="ui-field-contain">       
         <label for="password">Password :</label>
 
-        <input  id="password" type="password" name="password" maxlength="4" required>
+        <input  id="password" type="password" name="password" placeholder="4 digit number only" title="4 digit number only" maxlength="4" required>
      </div>
          <div class="ui-field-contain">
       <label for="confirm_password"> Confirm Password :</label>
 
-        <input id="confirm_password" type="password" onkeyup="checkPass(); return false;" name="confirm_password" maxlength="4" required>
+        <input id="confirm_password" type="password" onkeyup="checkPass(); return false;" name="confirm_password" placeholder="4 digit number only" title="4 digit number only" maxlength="4" required>
 </div>
          <div class="ui-field-contain">
      <label> <input type="checkbox" value="A" onclick="check();" required>&nbsp;I agree the company's</label><a href="#terms" data-rel="popup"  data-transition="flip">Terms and conditions</a>
