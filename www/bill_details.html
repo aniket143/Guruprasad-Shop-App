@@ -287,7 +287,7 @@ else
     <label for="pay">Payment Confirm</label>
       <input type="checkbox" name="pay" id="pay"  required>
       <label for="code">Client Passward Code:</label>
-      <input type="password" name="code" id="code" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
+      <input type="password" name="code" id="code" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" placeholder="4 digit number only" title="4 digit number only" maxlength="4" required>
  <label for="com">Per Bill Net Profit Entry:</label>
       <input type="tel" name="com" id="com"  onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
        <label for="trans">Validation Confirm</label>
