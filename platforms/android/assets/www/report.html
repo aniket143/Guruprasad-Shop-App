@@ -56,9 +56,9 @@ window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+lo
 <div data-role="page" id="pageone">
   <div data-role="panel" id="overlayPanel1" data-display="overlay" data-rel="back"> 
     <ul data-role="listview">
-   <li data-icon="camera"><a onclick="getid();" style= font-size:0.9em;>QR Code</a></li>
-  <li data-icon="user"><a onclick="getid();" style= font-size:0.9em;>Customer Id</a></li>
-  <li data-icon="phone"><a onclick="getid();" style= font-size:0.9em;>Mobile No</a></li>
+   <li data-icon="user"><a href="shop_profile.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Company Client Profile</a></li>
+  <li data-icon="shop"><a href="shop_bill.html?reload" style= font-size:0.9em; data-rel="external" rel="external">View Bill</a></li>
+
    <li data-icon="user"><a href="shop_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
     <li data-icon="info"><a href="shop_faq.html?reload" style= font-size:0.9em; data-rel="external" rel="external">FAQ</a></li>
   <li data-icon="phone"><a href="shop_contact_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Contact Us</a></li>
