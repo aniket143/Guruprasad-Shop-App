@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,29 +65,28 @@ document.getElementById('name1').innerHTML=queryString[key];
             var nameTitle = $.trim($("#nameTitle").val());
             var date = $.trim($("#date").val());
             var panNo = $.trim($("#panNo").val());
-            var cardid = $.trim($("#cardid").val());
+           // var cardid = $.trim($("#cardid").val());
             var address = $.trim($("#address").val());
             var city_town = $.trim($("#city_town").val());
             var district = $.trim($("#district").val());
             var state = $.trim($("#state").val());
             var pincode = $.trim($("#pincode").val());
-            var phoneno = $.trim($("#phoneno").val());
+           // var phoneno = $.trim($("#phoneno").val());
             var mobileNo= $.trim($("#mobileNo").val());
             var email= $.trim($("#email").val());
-            var nomineeName= $.trim($("#nomineeName").val());
-            var relation= $.trim($("#relation").val());
-            var payableName= $.trim($("#payableName").val());
-            var bankName= $.trim($("#bankName").val());
-            var branch= $.trim($("#branch").val());
-            var city= $.trim($("#city").val());
-            var accountNo= $.trim($("#accountNo").val());
-            var accountType= $.trim($("#accountType").val());
-            var ifscCode= $.trim($("#ifscCode").val());
+            //var nomineeName= $.trim($("#nomineeName").val());
+           // var relation= $.trim($("#relation").val());
+           // var payableName= $.trim($("#payableName").val());
+            //var bankName= $.trim($("#bankName").val());
+           // var branch= $.trim($("#branch").val());
+           // var city= $.trim($("#city").val());
+           // var accountNo= $.trim($("#accountNo").val());
+           // var accountType= $.trim($("#accountType").val());
+            //var ifscCode= $.trim($("#ifscCode").val());
             var password= $.trim($("#password").val());
             var confirm_password= $.trim($("#confirm_password").val());
             var ccode= $.trim($("#ccode").val());
-
-     if(applicateName=="" ||ccode==""|| sponsorId==""||date==""||panNo==""||cardid==""||address==""||address==""||city_town==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
+     if(applicateName=="" ||ccode=="" || sponsorId==""||date==""||panNo==""||address==""||city_town==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
            {
            alert("Please Enter All details properly!!");  
            document.getElementById('sponsorId').value="";         
@@ -99,7 +99,7 @@ document.getElementById('name1').innerHTML=queryString[key];
     //url: "client_entry1.php?action=member",
       url: "http://shopnearn.co.in/mobileapp/client_entry1.php?action=member",
            type     : 'POST',
-              data: ({sponsorId:sponsorId,title:title,nameTitle:nameTitle,applicateName:applicateName,fatherName:fatherName,date:date,panNo:panNo,cardid:cardid,address:address,city_town:city_town,district:district,state:state,pincode:pincode,phoneno:phoneno,mobileNo:mobileNo,email:email,nomineeName:nomineeName,relation:relation,payableName:payableName,bankName:bankName,branch:branch,city:city,accountNo:accountNo,accountType:accountType,ifscCode:ifscCode,password:password,confirm_password:confirm_password}),
+              data: ({sponsorId:sponsorId,title:title,nameTitle:nameTitle,applicateName:applicateName,fatherName:fatherName,date:date,panNo:panNo,address:address,city_town:city_town,district:district,state:state,pincode:pincode,mobileNo:mobileNo,email:email,password:password,confirm_password:confirm_password}),
                   cache: false,
                   dataType: "text",
                   success: onSuccess
@@ -115,7 +115,7 @@ function onSuccess(data)
             var applicateName = $.trim($("#applicateName").val());
             var date = $.trim($("#date").val());
             var panNo = $.trim($("#panNo").val());
-            var cardid = $.trim($("#cardid").val());
+           // var cardid = $.trim($("#cardid").val());
             var address = $.trim($("#address").val());
             var city_town = $.trim($("#city_town").val());
             var state = $.trim($("#state").val());
@@ -123,7 +123,7 @@ function onSuccess(data)
             var mobileNo= $.trim($("#mobileNo").val());
             var password= $.trim($("#password").val());
             var confirm_password= $.trim($("#confirm_password").val());
- if(applicateName=="" || sponsorId==""||date==""||panNo==""||cardid==""||address==""||address==""||city_town==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
+ if(applicateName=="" || sponsorId==""||date==""||panNo==""||address==""||city_town==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
            {
            alert("Please Enter All details properly!!");  
            document.getElementById('sponsorId').value="";         
@@ -337,7 +337,7 @@ function onSuccess(data)
    	 }
    	 else
    	 {}
-      } 
+      }
     
     function getid()
 {
@@ -402,10 +402,10 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
       <label for="panNo">Pan No:</label>
       <input type="text" name="panNo" id="panNo" maxlength="10" required>
       </div>
-         <div class="ui-field-contain">
+         <!--<div class="ui-field-contain">
       <label for="cardid">Card ID:</label>
       <input type="text" name="cardid" id="cardid" maxlength="16" required>
-      </div>
+      </div>-->
          <div class="ui-field-contain">
       <label for="address">Address:</label>
       <textarea name="address" id="address"  required></textarea>
@@ -437,10 +437,10 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
       <label for="pincode">PinCode :</label>
       <input id="pincode" type="tel" maxlength="6" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"   name="pincode" required>
 </div>
-         <div class="ui-field-contain"> 
+         <!--<div class="ui-field-contain"> 
  <label for="phoneno">Primary Phone No(with code) :</label>
   <input id="phoneno" type="tel" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  name="phoneno" >
-</div>
+</div>-->
          <div class="ui-field-contain"> 
       <label for="mobileNo"><font color="red">*</font> Mobile No:</label>
         <input  id="mobileNo" type="tel" maxlength="10" name="mobileNo" onblur="phonenumber(this.value);" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
@@ -465,7 +465,7 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
  <input id="email" type="text" name="email"  onblur="email_add(this.value);" onclick="checkcode();" required><div id="emailval">
     </div>
 </div>
-         <div class="ui-field-contain">      
+        <!-- <div class="ui-field-contain">      
       <label for="nomineeName"> Nominee Name :</label>
    <input  id="nomineeName" type="text" name="nomineeName" onkeypress="return lettersOnly(event)" >
 </div>
@@ -530,7 +530,7 @@ window.location.href="home1.html?member="+localStorage.getItem("shopcode")+'|'+l
          <div class="ui-field-contain">     
      <label for="ifscCode"> IFSC Code No :</label>
   <input  id="ifscCode" type="text" name="ifscCode"  maxlength="11" >
-</div>
+</div>-->
          <div class="ui-field-contain">       
         <label for="password">Password :</label>
 
