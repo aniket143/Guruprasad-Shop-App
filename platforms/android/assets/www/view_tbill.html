@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">  
+ <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />  
+ <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
+<script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>  
+ <script src="jss/jquery-1.4.4.min.js"></script>  
+ <script>
+ function checkConnection(e) {
+		if (doesConnectionExist() == true) {
+	//	alert("connection exists!");
+amount1();
+		} else {
+			alert("connection doesn't exist!");
+		window.location.reload();
+		}
+	}
+	
+	function doesConnectionExist() {
+	    var xhr = new XMLHttpRequest();
+//var file = "member_details.php";
+	var file = "http://shopnearn.co.in/mobileapp/member_details.php";
+		var randomNum = Math.round(Math.random() * 10000);
+		
+		xhr.open('HEAD', file + "?rand=" + randomNum, false);
+	    
+	    try {
+	    	xhr.send();
+	    	
+		    if (xhr.status >= 200 && xhr.status < 304) {
+		        return true;
+		    } else {
+		        return false;
+		    }
+	    } catch (e) {
+	    	return false;
+	    }
+	}
+	
+
+    
+    
+   $(function() {
+     $(document).ready(function() {
+      var queryString = new Array();
+
+          if (window.location.search.split('?').length > 1) {
+                var params = window.location.search.split('?')[1].split('&');
+                for (var i = 0; i < params.length; i++) {
+                    var key = params[i].split('=')[0];
+                    var value = decodeURIComponent(params[i].split('=')[1]);
+                    queryString[key] = value;
+                }
+            }
+var myArray=queryString[key].split('|');
+               document.getElementById('name1').innerHTML =myArray[1];
+            var name1 = myArray[0];          
+         $.ajax({
+     url: "http://shopnearn.co.in/mobileapp/view_tbill.php",
+    // url: "view_tbill.php",
+
+           type     : 'GET',
+             data: ({name: name1}),
+                  cache: false,
+                  dataType: "text",
+                  success: onSuccess
+                });});
+    $("#resultLog").ajaxError(function(event, request, settings, exception) {
+          $("#resultLog").html("Error Calling: " + settings.url + "<br />HTTP Code: " + request.status);
+        });
+function onSuccess(data)
+        {
+      $("#resultLog").html("Result: " + data);
+document.getElementById('myTable').innerHTML=data;
+        }
+  });
+  
+
+
+function getreg1()
+	{
+	window.location.href="client_registration1.html?member="+localStorage.getItem("shopname");
+	} 
+	
+	function getpass1()
+	{
+	window.location.href="change_password.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+	} 
+	
+	function getbill1()
+	{
+	window.location.href="view_tbill.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+	} 
+	function gethome1()
+	{
+	window.location.href="tieup_bill_new.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+	} 
+</script>
+
+</head>
+
+<body onload="getname1();">
+<div data-role="page" id="pagefour">
+<div data-role="panel" id="overlayPanel1" data-display="overlay" data-rel="back"> 
+    <ul data-role="listview">
+    <li data-icon="user"><a href="tieup_profile.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Company Client Profile</a></li>
+  <li data-icon="shop"><a onclick="getbill1();" style= font-size:0.9em; data-rel="external" rel="external">View Bill</a></li>
+<li data-icon="user"><a onclick="getreg1();" style= font-size:0.9em; data-rel="external" rel="external">New Registration</a></li>
+   <li data-icon="user"><a onclick="getpass1();" style= font-size:0.9em; data-rel="external" rel="external">Change Password</a></li>
+
+   <li data-icon="user"><a href="tieup_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
+    <li data-icon="info"><a href="tieup_faq.html?reload" style= font-size:0.9em; data-rel="external" rel="external">FAQ</a></li>
+  <li data-icon="phone"><a href="tieup_contact_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Contact Us</a></li>
+
+  <li data-icon="power"><a href="index.html?reload" style= font-size:0.9em; data-rel="external" rel="external" >Logout</a></li>
+</ul>  
+</div> 
+
+ 
+   <div data-role="header" data-position="fixed">
+
+         <h3 style="text-align: center"><div id="name1"></div></h3>
+           <a data-rel="external" rel="external"  data-rel="back" data-role="button" data-mini="true" href="#overlayPanel1" class="ui-btn-left ui-btn-corner-all ui-btn  ui-icon-bars ui-btn-icon-notext ui-shadow" title="Home" data-form="ui-icon" data-theme="a" > 
+          </a>         
+
+       <a onclick="gethome1();" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext" >Home</a>
+            </div>   
+    <center><h3>Bill Report</h3></center>
+    <div id="myTable" style="background-color:white;"> 
+  </div>
+</div>
+</body>
+</html>
