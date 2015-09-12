@@ -366,7 +366,7 @@ function getreg1()
 	<div class="ui-grid-b" >  
 
 		<div class="ui-block-a"><input type="radio" name="type" id="qrcode" value="qrcode"><label for="qrcode">	<font size="2">QR CODE	</font></label></div>
-		<div class="ui-block-b"><input type="radio" name="type" id="cust_id" value="cust_id"><label for="cust_id"><font size="2">CUSTOMER ID</font></label></div>
+		<div class="ui-block-b"><input type="radio" name="type" id="cust_id" value="cust_id"><label for="cust_id"><font size="1">CUSTOMER ID</font></label></div>
 		<div class="ui-block-c"><input type="radio" name="type" id="mobno" value="mobno"><label for="mobno"><font size="2">MOBILE NO</font></label></div>
 
 </div>
@@ -397,7 +397,7 @@ function getreg1()
     <label for="pay">Payment Confirm</label>
           <input type="checkbox" name="pay" id="pay"  required>
       <label for="code">Client Passward Code:</label>
-      <input type="password" name="code" id="code" onclick="amount1();" maxlength="4" placeholder="4 Digit Number Only" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
+      <input type="tel" name="code" id="code" onclick="amount1();" maxlength="4" placeholder="4 Digit Number Only" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
   <label for="trans">Validation Confirm</label>
       <input type="checkbox" name="trans" id="trans"  onclick="checkid();" required>
      <input type="submit"  value="SUBMIT" id="callAjax" onclick="checkConnection();" name="submit" data-transition="slide">
