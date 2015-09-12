@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">  
  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />  
  <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
+ <script src="js/phonegap-1.4.1.js"></script>
 <script src="js/jquery-1.11.3.min.js"></script>
  <script src="js/jquery.mobile-1.4.5.js"></script>  
  <script src="js/jquery-1.7.min.js"></script>  
@@ -182,28 +183,20 @@ document.getElementById('pwd').value="";
 }}
 
 
- function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
-function onDeviceReady() {
-        document.addEventListener("backbutton", backKeyDown, true);
-        console.log("PhoneGap is ready");
-    }
-  function backKeyDown() {
-        confirm("Do you want to Exit?");
-        navigator.app.exitApp(); // To exit the app!
-    }
-    
-        navigator.Backbutton.goHome(function() {
-  console.log('success');
-  navigator.app.exitApp();
-}, function() {
-  console.log('fail')
-});
+     function onLoad()
+            {
+                  document.addEventListener("deviceready", onDeviceReady, true);
+            }
+
+            function exitFromApp()
+             {
+                navigator.app.exitApp();
+             }
     
 </script>
 </head>
 <body onload="onLoad()">
+	       <button name="buttonClick" onclick="exitFromApp()">Exit App!</button>
 <!--.... ......First Page........ -->
 <div data-role="page" id="page" style="background-color:white;" >
 <div data-role="main" class="ui-content">
@@ -227,6 +220,7 @@ function onDeviceReady() {
  <label align="center" style="color:black;"> www.shopnearn.co.in </label><p><label align="center" style="color:rgb(231,120,23);"><i><b>Partner With Everyone</b></i></label></p>
 
 </div>
+       <button name="buttonClick" onclick="exitFromApp()">Exit App!</button>
 </div>
   </div>
     </div> 
