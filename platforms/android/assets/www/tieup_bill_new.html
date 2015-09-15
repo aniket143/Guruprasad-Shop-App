@@ -360,17 +360,17 @@ function getreg1()
 
        <a href="index.html?reload" class="ui-btn ui-corner-all ui-icon-power ui-btn-icon-notext" >Logout</a>
             </div>   
-
-    <div data-role="main" class="ui-content">
 <center><label><h3>Billing Transaction Process</h3></label></center>
 
-<!--<form name="contact_form" class="contact_form" method="post">-->
-    <fieldset data-role="controlgroup" data-iconpos="left">
-	<div class="ui-grid-b" >  
+    <div data-role="main" class="ui-content">
 
-		<div class="ui-block-a"><input type="radio" name="type" id="qrcode" value="qrcode"><label for="qrcode">	<font size="2">QR CODE	</font></label></div>
-		<div class="ui-block-b"><input type="radio" name="type" id="cust_id" value="cust_id"><label for="cust_id"><font size="1">CUSTOMER ID</font></label></div>
-		<div class="ui-block-c"><input type="radio" name="type" id="mobno" value="mobno"><label for="mobno"><font size="2">MOBILE NO</font></label></div>
+<!--<form name="contact_form" class="contact_form" method="post">-->
+    <fieldset data-role="controlgroup" data-iconpos="bottom" >
+	<div class="ui-grid-b"  >  
+
+		<div class="ui-block-a"  ><input type="radio" name="type" id="qrcode" value="qrcode" ><label for="qrcode" style="height:40px; border:1px solid;	border-radius: 7px;border-color:white;">	<font size="2">QR CODE	</font></label></div>
+		<div class="ui-block-b"><input type="radio" name="type" id="cust_id" value="cust_id" ><label for="cust_id" style="height:40px; border:1px solid;	border-radius: 7px;border-color:white;"><font size="1">CUSTOMER ID</font></label></div>
+		<div class="ui-block-c"><input type="radio" name="type" id="mobno" value="mobno" ><label for="mobno" style="height:40px; border:1px solid;	border-radius: 7px;border-color:white;"><font size="2">MOBILE NO</font></label></div>
 
 </div>
 </fieldset>
@@ -379,12 +379,14 @@ function getreg1()
  <input type="hidden" name="sms" id="sms"  required> 
  <input type="hidden" name="t1" id="t1" readonly>
        <input type="hidden" name="t2" id="t2" readonly>
-<div class="ui-grid-b">
-
-	<div class="ui-block-a"><input type="text" name="id" id="id" placeholder="CUSTOMER ID OR MOBILE NO" onclick="radio();" ></div>
-	<div class="ui-block-b"><button id="submitt" type="submit" data-theme="c">SUBMIT</button></div>
-
-</div>
+<table style="width:100%">
+<tr>
+<td>
+<button id="submitt" type="submit" style="background-color:#00A600;color:white">SUBMIT</button>
+</td><td>
+<input type="text" name="id" id="id" placeholder="CUSTOMER ID OR MOBILE NO" onclick="radio();">
+</td></tr>
+</table>
  <label for="name">Customer Name:</label>
       <input type="text" name="name" id="name" placeholder="CUSTOMER NAME" readonly>
      
@@ -403,8 +405,7 @@ function getreg1()
       <input type="tel" name="code" id="code" onclick="amount1();" maxlength="4" placeholder="4 Digit Number Only" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);" required>
   <label for="trans">Validation Confirm</label>
       <input type="checkbox" name="trans" id="trans"  onclick="checkid();" required>
-     <input type="submit"  value="SUBMIT" id="callAjax" onclick="checkConnection();" name="submit" data-transition="slide">
-    <!--</form>-->
+      <button type="submit"  id="callAjax" onclick="checkConnection();" name="submit" data-transition="slide" style="background-color:#00A600;color:white">SUBMIT</button>    <!--</form>-->
 </div>
 </div>
 </body>
