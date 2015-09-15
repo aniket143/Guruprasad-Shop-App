@@ -389,7 +389,7 @@ function getreg1()
 <br></br><div align="middle"><h3>Client Registration Form</h3></div>
 <form name="contact_form" class="contact_form" method="post">
 <div class="ui-field-contain">
-      <label for="sponsorId">Sales Promoter ID:</label>
+      <label for="sponsorId"><font color="red">*</font>Sales Promoter ID:</label>
       <input type="text" name="sponsorId" id="sponsorId" onblur="check_id(this.value);" required> <div id="sponsorval"></div>
       </div>
       <div class="ui-field-contain">
@@ -400,7 +400,7 @@ function getreg1()
     <option value="Mr." selected="">Mr.</option><option value="Mrs">Mrs</option><option value="Ms.">Ms.</option><option value="Dr.">Dr.</option>
                   </select>
                   </fieldset> 
-      <label for="applicateName">Applicant Name:</label>
+      <label for="applicateName"><font color="red">*</font>Applicant Name:</label>
       <input type="text" name="applicateName" id="applicateName"  onkeypress="return lettersOnly(event)" required>
             </div>
  <div class="ui-field-contain"> 
@@ -412,7 +412,7 @@ function getreg1()
  <input id="fatherName" type="text" onkeypress="return lettersOnly(event)"  name="fatherName" >
    </div> 
    <div class="ui-field-contain">
-      <label for="day">Date Of Birth:</label>
+      <label for="day"><font color="red">*</font>Date Of Birth:</label>
        <input type="date" name="date" id="date" required>
        </div>
                <div class="ui-field-contain">
@@ -424,7 +424,7 @@ function getreg1()
       <input type="text" name="cardid" id="cardid" maxlength="16" required>
       </div>-->
          <div class="ui-field-contain">
-      <label for="address">Address:</label>
+      <label for="address"><font color="red">*</font>Address:</label>
       <textarea name="address" id="address"  required></textarea>
       </div>
          <div class="ui-field-contain">
@@ -549,12 +549,12 @@ function getreg1()
   <input  id="ifscCode" type="text" name="ifscCode"  maxlength="11" >
 </div>-->
          <div class="ui-field-contain">       
-        <label for="password">Password :</label>
+        <label for="password"><font color="red">*</font>Password :</label>
 
         <input  id="password" type="password" name="password" placeholder="4 digit number only" title="4 digit number only" maxlength="4" required>
      </div>
          <div class="ui-field-contain">
-      <label for="confirm_password"> Confirm Password :</label>
+      <label for="confirm_password"> <font color="red">*</font>Confirm Password :</label>
 
         <input id="confirm_password" type="password" onkeyup="checkPass(); return false;" name="confirm_password" placeholder="4 digit number only" title="4 digit number only" maxlength="4" required>
 </div>
