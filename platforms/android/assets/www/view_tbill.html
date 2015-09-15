@@ -5,9 +5,11 @@
 <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">  
  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />  
  <link rel="stylesheet" href="css/themes/my-custom-theme.css" />
+ 
 <script src="js/jquery-1.11.3.min.js"></script>
   <script src="js/jquery.mobile-1.4.5.js"></script>  
  <script src="jss/jquery-1.4.4.min.js"></script>  
+
  <script>
  function checkConnection(e) {
 		if (doesConnectionExist() == true) {
@@ -44,7 +46,27 @@ amount1();
     
     
    $(function() {
-     $(document).ready(function() {
+        $(document).ready(function() {
+
+      var queryString = new Array();
+
+          if (window.location.search.split('?').length > 1) {
+                var params = window.location.search.split('?')[1].split('&');
+                for (var i = 0; i < params.length; i++) {
+                    var key = params[i].split('=')[0];
+                    var value = decodeURIComponent(params[i].split('=')[1]);
+                    queryString[key] = value;
+                }
+            }
+var myArray=queryString[key].split('|');
+               document.getElementById('name1').innerHTML =myArray[1];
+            var name1 = myArray[0];
+
+  });
+  });
+  
+  $(function() {
+$("#submit").click(function() {
       var queryString = new Array();
 
           if (window.location.search.split('?').length > 1) {
@@ -58,12 +80,16 @@ amount1();
 var myArray=queryString[key].split('|');
                document.getElementById('name1').innerHTML =myArray[1];
             var name1 = myArray[0];          
+            var to = document.getElementById('to').value;          
+            var from = document.getElementById('from').value;  
+            var today = document.getElementById('today').value;  
+
          $.ajax({
      url: "http://shopnearn.co.in/mobileapp/view_tbill.php",
     // url: "view_tbill.php",
 
            type     : 'GET',
-             data: ({name: name1}),
+             data: ({name: name1,to:to,from:from,today:today}),
                   cache: false,
                   dataType: "text",
                   success: onSuccess
@@ -73,6 +99,7 @@ var myArray=queryString[key].split('|');
         });
 function onSuccess(data)
         {
+        //alert(data);
       $("#resultLog").html("Result: " + data);
 document.getElementById('myTable').innerHTML=data;
         }
@@ -98,6 +125,35 @@ function getreg1()
 	{
 	window.location.href="tieup_bill_new.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
 	} 
+	
+function show_div(id)
+{
+   if(document.getElementById('criteria').value=='date1')
+		{
+		document.getElementById('datee1').style.display='block';
+		document.getElementById('datee').style.display='none';		
+		
+	}
+	
+	else 
+	{
+		document.getElementById('datee1').style.display='none';		
+		document.getElementById('datee').style.display='block';		
+		var today = new Date();   
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+
+        var yyyy = today.getFullYear();    
+
+        $('#today').val(yyyy + '-' + mm + '-' + dd); 
+		
+	}
+	
+	
+	
+	
+}	
+	
 </script>
 
 </head>
@@ -129,6 +185,24 @@ function getreg1()
        <a onclick="gethome1();" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext" >Home</a>
             </div>   
     <center><h3>Bill Report</h3></center>
+
+       <select name="criteria" id="criteria" class="form-control" onchange="show_div(this.value)" required>
+				 <option value="" > Select Criteria</option>
+				 <option value="date" > Today's Bill</option>
+				 <option value="date1" >Date to date</option>
+			</select>
+
+    <div class="form-group" id="datee1" style="display:none">
+	
+     <label class="col-sm-2 control-label">Select Date:</label>
+     <input type="date"  placeholder="From" id="from" name="from"/>      
+	 <input type="date"  placeholder="To" id="to" name="to"/>      
+	 </div>
+	 <div class="form-group" id="datee" style="display:none">
+	    
+	 <input type="text"  placeholder="Today" id="today" name="today" readonly />      
+	 </div>
+	        <button  type="submit" class="btn btn-primary"   id="submit"  name="submit" >Search </button> 
     <div id="myTable" style="background-color:white;"> 
   </div>
 </div>
