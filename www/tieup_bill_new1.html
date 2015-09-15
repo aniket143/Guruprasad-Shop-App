@@ -77,8 +77,10 @@ document.getElementById('trans').checked=false;
  }
     }
     
+   function loadbillno()
+    {
     $(function() {
-      $("#billno").click(function() {
+     $(document).ready(function() {
         var shopid=document.getElementById('t1').value;
             $.ajax({
 
@@ -100,7 +102,7 @@ function onSuccess(data)
          document.getElementById('billno').value=data;
           }
   });  
-   
+    }  
     $(function() {
       $("#callAjax").click(function() {
 
@@ -228,6 +230,7 @@ var id=document.getElementById('id').value;
     {
   $(function() {
   $("#submitt").click(function() {
+  	  loadbillno();
             var id = $.trim($("#id").val());
             
        if(id.length > 0)
@@ -270,6 +273,7 @@ function onSuccess(data)
  {
 $(function() {
   $("#submitt").click(function() {
+  	  loadbillno();
             var id = $.trim($("#id").val());
             
        if(id.length > 0)
