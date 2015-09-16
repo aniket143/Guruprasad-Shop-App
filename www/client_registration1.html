@@ -86,7 +86,7 @@ document.getElementById('name1').innerHTML=queryString[key];
             var password= $.trim($("#password").val());
             var confirm_password= $.trim($("#confirm_password").val());
             var ccode= $.trim($("#ccode").val());
-     if(applicateName=="" ||ccode=="" || sponsorId==""||date==""||panNo==""||address==""||city_town==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
+     if(applicateName=="" ||email=="" ||ccode=="" || sponsorId==""||date==""||panNo==""||address==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
            {
            alert("Please Enter All details properly!!");  
            document.getElementById('sponsorId').value="";         
@@ -123,7 +123,7 @@ function onSuccess(data)
             var mobileNo= $.trim($("#mobileNo").val());
             var password= $.trim($("#password").val());
             var confirm_password= $.trim($("#confirm_password").val());
- if(applicateName=="" || sponsorId==""||date==""||panNo==""||address==""||city_town==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
+ if(applicateName=="" || sponsorId==""||date==""||panNo==""||address==""||state==""||pincode==""||mobileNo==""||password==""||confirm_password=="")
            {
            alert("Please Enter All details properly!!");  
            document.getElementById('sponsorId').value="";         
