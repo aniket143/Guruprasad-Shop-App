@@ -416,7 +416,7 @@ function getreg1()
        <input type="date" name="date" id="date" required>
        </div>
                <div class="ui-field-contain">
-      <label for="panNo">Pan No:</label>
+      <label for="panNo"><font color="red">*</font>Pan No:</label>
       <input type="text" name="panNo" id="panNo" maxlength="10" required>
       </div>
         <!-- <div class="ui-field-contain">
@@ -432,26 +432,26 @@ function getreg1()
       <input type="text" name="city_town" id="city_town" onkeypress="return lettersOnly(event)" required>
       </div>
          <div class="ui-field-contain">
-      <label for="district">District :</label>
+      <label for="district"><font color="red">*</font>District :</label>
       <input type="text" name="district" id="district" onkeypress="return lettersOnly(event)" required>
       </div>
          <div class="ui-field-contain">
       <label for="state">State:</label>
     <select name="state" id="state" required >
-      <option value="" selected="">--------Select State--------</option><option value="Andaman And Nicobar">Andaman And Nicobar</option>
+      <option value="" >--------Select State--------</option><option value="Andaman And Nicobar">Andaman And Nicobar</option>
 				 <option value="Andhra Pradesh">Andhra Pradesh</option><option value="Arunachal Pradesh">Arunachal Pradesh</option><option value="Assam">Assam</option>
 				 <option value="Bihar">Bihar</option><option value="Chandigarh">Chandigarh</option><option value="Chattisgarh">Chattisgarh</option>
 				 <option value="Dadar Nagar Haweli">Dadar Nagar Haweli</option><option value="Daman And Diu">Daman And Diu</option><option value="Delhi">Delhi</option>
 				 <option value="Goa">Goa</option><option value="Gujarat">Gujarat</option><option value="Haryana">Haryana</option>
 				 <option value="Himanchal Pradesh">Himanchal Pradesh</option><option value="Jammu And Kashmir">Jammu And Kashmir</option>
 				 <option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option><option value="Kerala">Kerala</option>
-				 <option value="Lakshadweep">Lakshadweep</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharastra">Maharashtra</option>
+				 <option value="Lakshadweep">Lakshadweep</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharastra" selected="">Maharashtra</option>
 				 <option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option><option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option><option value="Orissa">Orissa</option><option value="Pondicherry">Pondicherry</option><option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option><option value="Sikkim">Sikkim</option><option value="Tamilnadu">Tamilnadu</option><option value="Telangana">Telangana</option><option value="Tripura">Tripura</option>
 				 <option value="Uttar Pradesh">Uttar Pradesh</option><option value="Uttaranchal">Uttaranchal</option><option value="West Bengal">West Bengal</option>
             </select>
             </div>
          <div class="ui-field-contain">
-      <label for="pincode">PinCode :</label>
+      <label for="pincode"><font color="red">*</font>PinCode :</label>
       <input id="pincode" type="tel" maxlength="6" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"   name="pincode" required>
 </div>
          <!--<div class="ui-field-contain"> 
@@ -478,7 +478,7 @@ function getreg1()
 <div id="mob"></div>
 </div> -->
          <div class="ui-field-contain"> 
- <label for="email"> Email:</label>
+ <label for="email"><font color="red">*</font> Email:</label>
  <input id="email" type="text" name="email"  onblur="email_add(this.value);" onclick="checkcode();" required><div id="emailval">
     </div>
 </div>
