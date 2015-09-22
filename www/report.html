@@ -58,6 +58,10 @@ function onSuccess(data)
 	{
 	window.location.href="shop_bill_new.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
 	} 
+		function getpass1()
+	{
+	window.location.href="change_password1.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+	} 
 </script>
         </head>
 <body onload="get();" id="callAjax">
@@ -68,6 +72,7 @@ function onSuccess(data)
     <li data-icon="user"><a href="shop_profile.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Company Client Profile</a></li>
   <li data-icon="shop"><a onclick="getbill();" style= font-size:0.9em; data-rel="external" rel="external">View Bill</a></li>
 <li data-icon="user"><a onclick="getreg();" style= font-size:0.9em; data-rel="external" rel="external">New Registration</a></li>
+   <li data-icon="user"><a onclick="getpass1();" style= font-size:0.9em; data-rel="external" rel="external">Change Password</a></li>
    <li data-icon="user"><a href="shop_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
     <li data-icon="info"><a href="shop_faq.html?reload" style= font-size:0.9em; data-rel="external" rel="external">FAQ</a></li>
   <li data-icon="phone"><a href="shop_contact_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Contact Us</a></li>
