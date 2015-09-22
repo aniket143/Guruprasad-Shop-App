@@ -96,7 +96,7 @@ if(applicateName=="" || ccode=="" || sponsorId==""||date==""||panNo==""||address
      else{
             $.ajax({
    // url: "client_entry.php?action=member",
-        url: "http://shopnearn.co.in/mobileapp/client_entry1.php?action=member",
+     url: "http://shopnearn.co.in/mobileapp/client_entry1.php?action=member",
            type     : 'POST',
               data: ({sponsorId:sponsorId,title:title,nameTitle:nameTitle,applicateName:applicateName,fatherName:fatherName,date:date,panNo:panNo,address:address,city_town:city_town,district:district,state:state,pincode:pincode,mobileNo:mobileNo,email:email,password:password,confirm_password:confirm_password}),
                   cache: false,
@@ -131,7 +131,8 @@ function onSuccess(data)
      else{
           $("#resultLog").html("Result: " + data);
                                alert("Client Registered Successfully...!!!!");  
-          window.location.href="home.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+          window.location.href="tieup_bill_new.html?member="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+        document.getElementById('sponsorId').value="";         
         document.getElementById('applicateName').value="";         
            document.getElementById('fatherName').value="";         
            document.getElementById('date').value="";         
@@ -374,6 +375,10 @@ function onSuccess(data)
 	{
 	window.location.href="shop_bill_new.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
 	} 
+	function getpass1()
+	{
+	window.location.href="change_password1.html?memember="+localStorage.getItem("shopcode")+'|'+localStorage.getItem("shopname");
+	} 
 
 </script>
 </head>
@@ -385,6 +390,7 @@ function onSuccess(data)
     <li data-icon="user"><a href="shop_profile.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Company Client Profile</a></li>
   <li data-icon="shop"><a onclick="getbill();" style= font-size:0.9em; data-rel="external" rel="external">View Bill</a></li>
 <li data-icon="user"><a onclick="getreg();" style= font-size:0.9em; data-rel="external" rel="external">New Registration</a></li>
+   <li data-icon="user"><a onclick="getpass1();" style= font-size:0.9em; data-rel="external" rel="external">Change Password</a></li>
    <li data-icon="user"><a href="shop_about_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">About Us</a></li>
     <li data-icon="info"><a href="shop_faq.html?reload" style= font-size:0.9em; data-rel="external" rel="external">FAQ</a></li>
   <li data-icon="phone"><a href="shop_contact_us.html?reload" style= font-size:0.9em; data-rel="external" rel="external">Contact Us</a></li>
@@ -434,10 +440,10 @@ function onSuccess(data)
       <label for="panNo">Pan No:</label>
       <input type="text" name="panNo" id="panNo" maxlength="10" required>
       </div>
-         <div class="ui-field-contain">
+         <!-- <div class="ui-field-contain">
       <label for="cardid">Card ID:</label>
       <input type="text" name="cardid" id="cardid" maxlength="16" required>
-      </div>
+      </div> -->
          <div class="ui-field-contain">
       <label for="address">Address:</label>
       <textarea name="address" id="address"  required></textarea>
@@ -453,14 +459,14 @@ function onSuccess(data)
          <div class="ui-field-contain">
       <label for="state">State:</label>
     <select name="state" id="state" required >
-      <option value="" selected="">--------Select State--------</option><option value="Andaman And Nicobar">Andaman And Nicobar</option>
+      <option value="" >--------Select State--------</option><option value="Andaman And Nicobar">Andaman And Nicobar</option>
 				 <option value="Andhra Pradesh">Andhra Pradesh</option><option value="Arunachal Pradesh">Arunachal Pradesh</option><option value="Assam">Assam</option>
 				 <option value="Bihar">Bihar</option><option value="Chandigarh">Chandigarh</option><option value="Chattisgarh">Chattisgarh</option>
 				 <option value="Dadar Nagar Haweli">Dadar Nagar Haweli</option><option value="Daman And Diu">Daman And Diu</option><option value="Delhi">Delhi</option>
 				 <option value="Goa">Goa</option><option value="Gujarat">Gujarat</option><option value="Haryana">Haryana</option>
 				 <option value="Himanchal Pradesh">Himanchal Pradesh</option><option value="Jammu And Kashmir">Jammu And Kashmir</option>
 				 <option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option><option value="Kerala">Kerala</option>
-				 <option value="Lakshadweep">Lakshadweep</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharastra">Maharashtra</option>
+				 <option value="Lakshadweep">Lakshadweep</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharastra" selected>Maharashtra</option>
 				 <option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option><option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option><option value="Orissa">Orissa</option><option value="Pondicherry">Pondicherry</option><option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option><option value="Sikkim">Sikkim</option><option value="Tamilnadu">Tamilnadu</option><option value="Telangana">Telangana</option><option value="Tripura">Tripura</option>
 				 <option value="Uttar Pradesh">Uttar Pradesh</option><option value="Uttaranchal">Uttaranchal</option><option value="West Bengal">West Bengal</option>
             </select>
@@ -473,7 +479,7 @@ function onSuccess(data)
  <label for="phoneno">Primary Phone No(with code) :</label>
   <input id="phoneno" type="tel" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  name="phoneno" >
 </div>-->
-         < <div class="ui-field-contain"> 
+          <div class="ui-field-contain"> 
       <label for="mobileNo"><font color="red">*</font> Mobile No:</label>
         <input  id="mobileNo" type="tel" maxlength="10" name="mobileNo" onblur="phonenumber(this.value);" onkeypress="if(event.keyCode!=9) return numbersonly(this, event);"  required>
 <input type="hidden" id="cmatch" name="cmatch"> <div id="mob"></div>   
