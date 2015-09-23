@@ -76,7 +76,8 @@ document.getElementById('trans').checked=false;
 
  }
     }
-    function loadbillno()
+    
+   function loadbillno()
     {
     $(function() {
      $(document).ready(function() {
@@ -101,12 +102,13 @@ function onSuccess(data)
          document.getElementById('billno').value=data;
           }
   });  
-    }
+    }  
     $(function() {
       $("#callAjax").click(function() {
 
 
         var billno = $.trim($("#billno").val());
+           var bill = $.trim($("#bill").val());
             var member1 = $.trim($("#member1").val());
             var amount = $.trim($("#amount").val());
             var sms= $.trim($("#sms").val());
@@ -124,15 +126,17 @@ function onSuccess(data)
                  document.getElementById('billno').value="";
                  document.getElementById('amount').value="";
                  document.getElementById('code').value="";
+            document.getElementById('bill').value="";
+
             }
             
             else{
             $.ajax({
 
-     // url: "tie_up.php",
-     url: "http://shopnearn.co.in/mobileapp/tie_up.php",
+    //  url: "tie_up.php",
+      url: "http://shopnearn.co.in/mobileapp/tie_up.php",
            type     : 'POST',
-              data: ({billno: billno,amount:amount,member1:member1,t1:t1,sms:sms}),
+              data: ({billno: billno,amount:amount,member1:member1,t1:t1,sms:sms,bill:bill}),
                   cache: false,
                   dataType: "text",
                   success: onSuccess
@@ -364,7 +368,7 @@ function getreg1()
 
     <div data-role="main" class="ui-content">
 
-   <fieldset data-role="controlgroup" data-iconpos="bottom" >
+<fieldset data-role="controlgroup" data-iconpos="bottom" >
 	<div class="ui-grid-b"  >  
 
 		<div class="ui-block-a"  ><input type="radio" name="type" id="qrcode" value="qrcode" ><label for="qrcode" style="height:40px; border:2px solid;	border-radius: 7px;border-color:white;">	<font size="2">QR CODE	</font></label></div>
