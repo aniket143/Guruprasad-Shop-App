@@ -110,6 +110,7 @@ function onSuccess(data)
 
 
         var billno = $.trim($("#billno").val());
+                var bill = $.trim($("#bill").val());
             var member1 = $.trim($("#member1").val());
             var amount = $.trim($("#amount").val());
             var sms= $.trim($("#sms").val());
@@ -129,6 +130,7 @@ function onSuccess(data)
                  document.getElementById('amount').value="";
                  document.getElementById('code').value="";
                  document.getElementById('com').value="";
+                 document.getElementById('bill').value="";
             }
             
             else{
@@ -137,7 +139,7 @@ function onSuccess(data)
     //  url: "tie_up.php",
        url: "http://shopnearn.co.in/mobileapp/shop_insert_mob.php",
            type     : 'POST',
-              data: ({billno: billno,amount:amount,member1:member1,t1:t1,sms:sms}),
+              data: ({billno: billno,amount:amount,member1:member1,t1:t1,sms:sms,bill:bill}),
                   cache: false,
                   dataType: "text",
                   success: onSuccess
