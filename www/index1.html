@@ -33,7 +33,7 @@ function checkConnection(e) {
 	    try {
 	    	xhr.send();
 	    	
-		    if (xhr.status >= 200 && xhr.status < 304) {
+		     if(xhr.readyState == 4 && xhr.status >= 200) {
 		        return true;
 		    } else {
 		        return false;
