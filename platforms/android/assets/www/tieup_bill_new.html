@@ -130,6 +130,11 @@ function onSuccess(data)
             }
             
             else{
+            	 var clicked = false;
+        if(clicked === false) {
+        $(this).addClass('ui-disabled');
+        clicked = true;
+        alert('Your Transaction Processing,Please Wait...');
             	
             $.ajax({
 
