@@ -189,6 +189,7 @@ document.addEventListener("deviceready", onDeviceReady, true);
 }
 //ani
 function onDeviceReady() {
+	    	 console.log("deviceready event fired");
 document.addEventListener("exitapp", exitFromApp, false);
 document.addEventListener("offline", onOffline, false);
 }
@@ -200,6 +201,7 @@ alert('Application is offline');
 }
 function exitFromApp()
 {
+console.log("Exiting app");
 navigator.app.exitApp();
 }
 </script>
