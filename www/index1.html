@@ -187,11 +187,24 @@ document.getElementById('pwd').value="";
             {
                   document.addEventListener("deviceready", onDeviceReady, true);
             }
+        
+         //ani
+     
+    function onDeviceReady() {
+        document.addEventListener("exitapp", exitFromApp, false);
+        document.addEventListener("offline", onOffline, false);
 
-            function exitFromApp()
-             {
-                navigator.app.exitApp();
-             }
+    }
+    //ani
+    function onOffline()
+    {
+         // Handle the offline event
+        alert('Application is offline');
+    }
+   function exitFromApp()
+    {
+      navigator.app.exitApp();
+    }
     
 </script>
 </head>
