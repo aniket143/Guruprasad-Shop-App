@@ -183,16 +183,25 @@ document.getElementById('pwd').value="";
 }}
 
 
-     function onLoad()
-            {
-                  document.addEventListener("deviceready", onDeviceReady, true);
-            }
-
-            function exitFromApp()
-             {
-                navigator.app.exitApp();
-             }
-    
+      function onLoad()
+{
+document.addEventListener("deviceready", onDeviceReady, true);
+}
+//ani
+function onDeviceReady() {
+document.addEventListener("exitapp", exitFromApp, false);
+document.addEventListener("offline", onOffline, false);
+}
+//ani
+function onOffline()
+{
+// Handle the offline event
+alert('Application is offline');
+}
+function exitFromApp()
+{
+navigator.app.exitApp();
+}
 </script>
 </head>
 <body onload="onLoad()">
