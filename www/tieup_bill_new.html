@@ -147,6 +147,7 @@ function onSuccess(data)
                   success: onSuccess
                 });
                 }
+            }
                 });
      $("#resultLog").ajaxError(function(event, request, settings, exception) {
           $("#resultLog").html("Error Calling: " + settings.url + "<br />HTTP Code: " + request.status);});
