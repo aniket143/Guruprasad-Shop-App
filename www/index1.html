@@ -10,7 +10,7 @@
 <script src="js/jquery-1.11.3.min.js"></script>
  <script src="js/jquery.mobile-1.4.5.js"></script>  
  <script src="js/jquery-1.7.min.js"></script>  
-<script type="text/javascript" charset="utf-8" src="js/cordova1.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
 <script type="text/javascript" charset="utf-8"> 
 function checkConnection(e) {
 if (doesConnectionExist() == true) {
@@ -208,7 +208,7 @@ document.getElementById('pwd').value="";
     
 </script>
 </head>
-<body onload="onLoad()">
+<body onload="javascript:onLoad()">
 <!--.... ......First Page........ -->
 <div data-role="page" id="page" style="background-color:white;" >
 <div data-role="main" class="ui-content">
