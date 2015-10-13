@@ -23,7 +23,7 @@
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
-    <preference name='phonegap-version' value='cli-3.7.0' />
+    <preference name='phonegap-version' value='cli-5.2.0' />
     <preference name="android-installLocation" value="auto" />
     <preference name="android-build-tool" value="gradle" />
     <gap:plugin name="com.phonegap.plugin.statusbar" source="npm" />
