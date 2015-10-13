@@ -34,12 +34,12 @@
     <gap:plugin name="org.apache.cordova.contacts"  source="npm"/>
     <gap:plugin name="org.apache.cordova.device" source="npm"/>
     <gap:plugin name="org.apache.cordova.device-motion" source="npm"/>
-    <gap:plugin name="org.apache.cordova.device-orientation" />
+    <gap:plugin name="org.apache.cordova.device-orientation" source="npm"/>
     <gap:plugin name="org.apache.cordova.dialogs" source="npm"/>
     <gap:plugin name="org.apache.cordova.file" source="npm"/>
     <gap:plugin name="org.apache.cordova.file-transfer" source="npm" />
-    <gap:plugin name="org.apache.cordova.geolocation" />
-    <gap:plugin name="org.apache.cordova.globalization" />
+    <gap:plugin name="org.apache.cordova.geolocation" source="npm"/>
+    <gap:plugin name="org.apache.cordova.globalization" source="npm"/>
     <gap:plugin name="org.apache.cordova.inappbrowser" source="npm" />
     <gap:plugin name="org.apache.cordova.media" source="npm"/>
     <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
